@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>slickworks</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {
+            background-color: hsl(0, 0%, 2%);
+            cursor: pointer;
+        }
+
+        * {
+            font-family: 'Tahoma';
+            font-size: 100px;
+        }
+
+        body,
+        html {
+            overflow: hidden;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div
+        style="position: absolute; left:50%; top:50%; width: 600px;height: 300px;margin-top: -150px; margin-left: -300px; text-align: center; color: skyblue">
+        新年好
+    </div>
+    <div id="'year'"
+        style="position: absolute; width:100%; height: 100%; margin: 0; text-align: center; color: rgba(255,255,255,0.05); font-size: 700px">
+        2022
+    </div>
+    <canvas id="game" style="background-color: black"></canvas>
+    <script type="text/javascript">
+        var c = document.getElementById('game').getContext('2d'),
+            currentTime = 0,
+            oldTime = 0,
+            delta = 0,
+            targetFPS = 60,
+            getStats = 0,
+            fireworks = [],
+            trails = [],
+            spawnRate = 0,
+            mouse = { x: NaN, y: NaN },
+            mousePushed = false
+            ;
+
+        window.addEventListener('resize', resize);
+
+        window.onmousemove = function (e) {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        }
+        window.onmousedown = function (e) {
+            mousePushed = true;
+        };
+        window.onmouseup = function (e) {
+            mousePushed = false;
+        };
+
+        function resize() {
+            c.canvas.width = window.innerWidth;
+            c.canvas.height = window.innerHeight;
+        }
+        resize();
+
+        function doLoop() {
+            c.clearRect(0, 0, c.canvas.width, c.canvas.height);
+            trailsLoop();
+            fireworksLoop();
+            if (spawnRate < 0) {
+                spawn();
+                spawnRate = 30;
+            }
+            else {
+                spawnRate--;
+            }
+
+            if (mousePushed) {
+                targetFPS = 30;
+            }
+            else {
+                targetFPS = 60;
+            }
+        }
+
+        function fireworksLoop() {
+            for (var i = 0; i < fireworks.length; i++) {
+                fireworks[i].draw();
+                if (fireworks[i].explodeTime < 0) {
+                    fireworks.splice(i, 1);
+                }
+            }
+        }
+        function trailsLoop() {
+            for (var i = 0; i < trails.length; i++) {
+                trails[i].draw();
+                if (trails[i].lifeTime < 0) {
+                    trails.splice(i, 1);
+                }
+            }
+        }
+
+        class firework {
+            constructor(x, y, isRainbow) {
+                this.x = Math.round(x);
+                this.y = Math.round(y);
+                this.size = rand(10, 80);
+                this.xSpeed = 0;
+                this.xSpeedRandomizer = rand(0, 1);
+                this.color = Math.round(rand(0, 360));
+                this.ySpeed = -rand(2, 3);
+                this.lifeTime = rand(80, 200);
+                this.fullLife = this.lifeTime;
+                this.explodeTime = 120;
+                this.exploded = false;
+                this.trailSpawn = 0;
+                this.pieces = [];
+                this.grd = c.createRadialGradient(0, 0, 0, 0, 0, 100);
+                (isRainbow) ? this.grd.addColorStop(0, "rgba(255,255,255,0.2)") : this.grd.addColorStop(0, "hsla(" + this.color + ",100%,50%,0.2)");
+                this.grd.addColorStop(1, "rgba(0,0,0,0)");
+                this.draw = function () {
+                    if (this.lifeTime < 0) {
+                        this.explodeTime--;
+                        if (!this.exploded) {
+                            for (var i = 0; i < this.size; i++) {
+                                this.pieces.push({
+                                    x: this.x,
+                                    y: this.y,
+                                    xSpeed: Math.sin(i) + rand(-1, 1),
+                                    ySpeed: Math.cos(i) + rand(-1, 1) + this.ySpeed,
+                                    color: (isRainbow) ? rand(0, 360) : this.color
+                                })
+                                this.exploded = true;
+                            }
+                        }
+                    }
+                    else {
+                        this.lifeTime--;
+                        this.xSpeed = Math.sin(this.y / 50) * this.xSpeedRandomizer;
+                        if (isRainbow) {
+                            this.color = (this.lifeTime / this.fullLife) * 360;
+                        }
+
+                        c.save();
+                        c.translate(this.x, this.y);
+                        c.rotate(this.xSpeed / 2);
+                        c.fillStyle = this.grd;
+                        c.fillRect(-100, -100, 200, 200);
+                        c.fillStyle = 'hsl(' + this.color + ',100%,50%)';
+                        c.fillRect(-1 - this.size / 20, -5 - this.size / 10, 5 + this.size / 10, 10 + this.size / 5);
+                        c.restore();
+
+                        this.x += this.xSpeed;
+                        this.y += this.ySpeed;
+
+                        if (this.trailSpawn < 1) {
+                            trails.push(new trail(this.x + this.size / 12, this.y, this.xSpeed / 2, 120, false));
+                            this.trailSpawn = 5;
+                        }
+                        else {
+                            this.trailSpawn--;
+                        }
+                    }
+                    for (var i = 0; i < this.pieces.length; i++) {
+                        c.fillStyle = 'hsla(' + this.pieces[i].color + ',100%,50%,' + this.explodeTime / 120 + ')';
+                        c.fillRect(this.pieces[i].x, this.pieces[i].y, 3, 3);
+                        this.pieces[i].x += this.pieces[i].xSpeed;
+                        this.pieces[i].y += this.pieces[i].ySpeed;
+                        this.pieces[i].ySpeed += 0.04;
+                        trails.push(new trail(this.pieces[i].x, this.pieces[i].y, false, 30, true, this.pieces[i].color));
+                    }
+                }
+            }
+        }
+        class trail {
+            constructor(x, y, rotation, life, isDot, color) {
+                this.x = Math.round(x);
+                this.y = Math.round(y);
+                this.rotation = rotation;
+                this.color = color;
+                this.lifeTime = life;
+                this.fullLife = life;
+                this.draw = function () {
+                    this.lifeTime--;
+                    if (!isDot) {
+                        c.fillStyle = 'rgba(50,50,50,' + this.lifeTime / this.fullLife + ')';
+                        c.save();
+                        c.translate(this.x, this.y);
+                        c.rotate(this.rotation);
+                        c.fillRect(-4, -5, 3, 12);
+                        c.restore();
+                    }
+                    else {
+                        c.fillStyle = 'hsla(' + this.color + ',100%,50%,' + this.lifeTime / this.fullLife + ')';
+                        c.fillRect(this.x, this.y, 2, 2);
+                    }
+                }
+            }
+        }
+        function spawn() {
+            fireworks.push(new firework(rand(0, c.canvas.width), c.canvas.height + rand(10, 100), (Math.random() > 0.9) ? true : false));
+        }
+        spawn();
+
+        function rand(min, max) {
+            return Math.random() * (max - min + 1) + min;
+        }
+        function dist(x1, y1, x2, y2) {
+            return Math.sqrt((x2 -= x1) * x2 + (y2 -= y1) * y2);
+        }
+
+        var then = Date.now();
+        window.requestAnimFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback, element) {
+                    window.setTimeout(callback, 1000 / targetFPS);
+                };
+        })();
+        function callUpdate() {
+            requestAnimFrame(callUpdate);
+            currentTime = Date.now();
+            elapsed = currentTime - then;
+            if (elapsed > (1000 / targetFPS)) {
+                then = currentTime - (elapsed % (1000 / targetFPS));
+                doLoop();
+            }
+        }
+        callUpdate();
+    </script>
+</body>
+
+</html>
