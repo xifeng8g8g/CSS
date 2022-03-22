@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <style>
+        /* 用>号只会让最近一级的子元素改变 */
+        .bb>a {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 只选择某元素最近的一级子元素 -->
+    <!--bb是爹 -->
+    <div class="bb">
+        <a href="#">儿子</a>
+        <p>
+            <a href="#">孙子</a>
+        </p>
+    </div>
+
+</body>
+
+</html>

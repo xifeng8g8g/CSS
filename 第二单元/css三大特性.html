@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 这里只有一点五大哈 */
+        /* 层叠性 */
+        /* 相同的选择器设置相同样式，此时一个样式会覆盖另一个冲突的样式 */
+        /* 样式冲突的话，遵守就近原则 那个样式距离结构近，就执行哪个样式 */
+        /* 样式不冲突，不会重叠 */
+        div {
+            color: blueviolet;
+            /* font-size: 12px; */
+        }
+
+        div {
+            color: red;
+        }
+
+        /* 继承性 */
+        /* 子标签会继承父亲标签的某些样式，如：文字颜色和字号    text- font- line-  color-这些元素开头都可以继承*/
+        p {
+            color: red;
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>11111111111</div>
+
+
+    <p>
+        <span>2222222222222</span>
+    </p>
+</body>
+
+</html>

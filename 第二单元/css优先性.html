@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 权重： 继承或者*     0.0.0.0
+              元素选择器    0.0.0.1
+              类/伪类选择器  0.0.1.0
+              id选择器      0.1.0.0
+              行内选择器     1.0.0.0
+              ！inportant    无限大 */
+    /* 选择器的优先级顺序便是： 继承或者*<元素选择器<类/伪类选择器<ID选择器<行内样式style=""<！inportant */
+    /* 类选择器的优先级比元素选择器的优先级高 */
+    /* .xifeng {
+        color: blue;
+    } */
+    /* !important是优先级别最高最重要的，它的优先级是无限大的 */
+    div {
+        color: green !important;
+    }
+
+    /* ID选择器优先级高于类/伪类和元素选择器 */
+    /* #demo {
+        color: burlywood;
+    } */
+
+
+    /* id的权重比较高，但是，继承的权重为0 */
+    #xiaopang {
+        color: deeppink;
+    }
+
+    /* 继承的权重是0，因为元素的优先级高于继承，所以文字显示为金色 */
+    /* 所以以后看标签到底执行那个样式，就先看这个标签有没有被直接选出来 */
+    p {
+        color: gold;
+    }
+
+    body {
+        color: red;
+    }
+
+    /* 链接在浏览器中默认指定一个蓝色的带有下划线的样式 */
+    /* 所以需要手动修改 */
+    a {
+        color: violet;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <!-- style是行内选择器 -->
+    <div class="xifeng" id="demo" style="color: chocolate;">你憋巴巴</div>
+    <div id="xiaopang">
+        <p>闭上你的锥八</p>
+        <a href="#">我是单独的样式</a>
+    </div>
+</body>
+
+</html>

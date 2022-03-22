@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 如果子级使用绝对定位，父级则需要相对定位 */
+        /* 子级绝对定位，不会占有位置，可以放到父盒子里面任何一个地方，不会影响其他的兄弟盒子。 */
+        /* 父盒子需要加相对定位限制子盒子在父盒子内显示，因为相对定位保留原先位置。 */
+        .aa {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            background-color: khaki;
+        }
+
+        .bb {
+            position: absolute;
+            top: 200px;
+            left: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: lightcoral;
+        }
+
+        .cc {
+            position: absolute;
+            top: 200px;
+            right: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: lightslategrey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aa">
+        <div class="bb"></div>
+        <div class="cc"></div>
+    </div>
+</body>
+
+</html>

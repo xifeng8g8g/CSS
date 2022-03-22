@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 在使用定位布局时，可能会出现盒子重叠的情况，此时，可以使用z-index来控制盒子的前后次序(z轴) */
+        /* 如果属性值相同，则按期书写顺序，后来居上 */
+        /* 数值可以是正整数、负整数或0,默认是auto,数值越大，盒子越靠上 */
+        /* 数字后面不能加单位 */
+        /* 只有定位的盒子才有z-index属性 */
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+        }
+
+        .aa {
+            background-color: plum;
+            z-index: 1;
+
+        }
+
+        .bb {
+            background-color: powderblue;
+            left: 50px;
+            top: 50px;
+            /* z-index: 2; */
+        }
+
+        .cc {
+            background-color: rebeccapurple;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box aa"></div>
+    <div class="box bb"></div>
+    <div class="box cc"></div>
+</body>
+
+</html>

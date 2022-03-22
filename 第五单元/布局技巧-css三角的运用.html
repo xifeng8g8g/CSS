@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 0;
+            height: 0;
+            /*  transparent 无颜色 */
+            /* 把上边框宽度调大 */
+            border-top: 100px solid transparent;
+            border-right: 50px solid skyblue;
+            /* 把左和下的边框宽度设置为0 */
+            border-bottom: 0px solid blue;
+            border-left: 0px solid green;
+            /* 当然也可以简写 */
+            /* 只保留右边框的颜色 顺序是 上右下左 */
+            /* border-color: transparent red transparent transparent; */
+            /* 样式都是solid */
+            /* border-style: solid; */
+            /* 上边框宽度要大，右边框宽度稍小，其余边框为0 */
+            /* border-width: 100px 50px 0 0; */
+        }
+
+        .price {
+            width: 160px;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+
+        .ms {
+            position: relative;
+            float: left;
+            width: 90px;
+            height: 100%;
+            background-color: red;
+            text-align: center;
+            color: #fff;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .ms i {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-color: transparent white transparent transparent;
+            border-style: solid;
+            border-width: 24px 10px 0 0;
+        }
+        .oo{
+            font-size: 12px;
+            color: gray;
+            text-decoration: line-through;
+        }
+    </style> 
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="price">
+        <span class="ms">
+            ￥1650
+            <i></i>
+        </span>
+        <span class="oo">
+            ￥1500
+        </span>
+    </div>
+</body>
+
+</html>

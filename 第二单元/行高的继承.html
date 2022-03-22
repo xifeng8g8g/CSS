@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: royalblue;
+            /* font: 12px/24px "微软雅黑"; */
+            font: 12px/1.5 "微软雅黑";
+        }
+
+        div {
+            /* 子元素继承了父元素的行高1.5 */
+            /* 这个1.5是当前文字大小 font-size的1.5倍（14*1.5=21） 所以当前div的行高是21像素*/
+            font-size: 14px;
+        }
+
+        p {
+            /* 1.5*16=24 当前p的行高 */
+            font-size: 16px;
+        }
+
+        /* li没有手动指定文字大小，则会继承父亲的文字大小 body 是12px,所以li的文字大小为12px 当前li的行高就是12*1.5=18px*/
+    </style>
+</head>
+
+<body>
+    <div>1111111</div>
+    <p>22222222</p>
+    <ul>
+        <li>没有指定文字大小</li>
+    </ul>
+</body>
+
+</html>

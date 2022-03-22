@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 让固定定位的盒子lett:50%.走到浏览器可视区（也可以看做版心）的一半位置 */
+        /* 让固定定位的盒了margin-left:版心宽度的一半距离。多走版心宽度的一半位置 */
+        /* 就可以让固定定位的盒子贴着版心右侧对齐了。 */
+        .w {
+            width: 800px;
+            height: 1400px;
+            background-color: limegreen;
+            margin: 0 auto;
+        }
+
+        .fixed {
+            position: fixed;
+            /* 1.走浏览器宽度的一半 */
+            left: 50%;
+            /* 2.利用margin走版心盒子宽度的一半距离（盒子宽度是800px） */
+            margin-left: 400px;
+            width: 50px;
+            height: 150px;
+            background-color: maroon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fixed"></div>
+    <div class="w">版心盒子 800像素</div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* font-weight:后面的值，400等同于normal（不加粗），700等同于bold（加粗），数字后面不加单位 */
+        /* bold字体加粗 */
+        .bold{
+            font-weight: bold;
+        }
+        /* 加粗的值后面不要跟单位，等价与bold都是加粗效果 */
+        /* 实际开发中更提倡数字 */
+        .gold{
+            font-weight: 700;
+        }
+        /* normal字体变细 */
+        h2{
+            font-weight: normal;
+        }
+        /* font-style里的normal默认让浏览器显示标准的字体样式 */
+        /* italic会让字体倾斜 */
+        p{
+            font-style: italic;
+        }
+        em{
+            /* 让倾斜的字体变回正常 */
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <h2>今天的我要自己上厕所</h2>
+    <!-- 某一个字加粗则使用strong -->
+    <p>1111111<strong>1</strong></p>
+    <p class="bold">22222222</p>
+    <p class="gold">33333333</p>
+    <p>44444444</p>
+    <p>55555555</p>
+    <!-- em倾斜标签 -->
+    <em>ninininin</em>
+</body>
+</html>

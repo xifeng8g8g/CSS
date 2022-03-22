@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 600px;
+            background-color: slateblue;
+        }
+
+        .yi,
+        .er {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+
+        }
+
+        .yi {
+            /* 尽量给一个盒子添加margin值 */
+            margin-bottom: 100px;
+        }
+
+        .er {
+            /* 两个相邻的块元素相遇时，上面的盒子有上边距，下面有下边距，他们的距离不是两个边距的和，而是取两个值中最大的值，这种情况被称为外边距合并 */
+            margin-top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="yi">大毛</div>
+        <div class="er">二毛</div>
+    </div>
+</body>
+
+</html>
