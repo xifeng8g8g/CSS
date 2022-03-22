@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aa {
+            width: 200px;
+            height: 200px;
+            background-color: khaki;
+            margin: 100px auto;
+            /* 第一个参数是水平阴影的位置，可以是负数 （必需）*/
+            /* 第二个参数是垂直阴影的位置，可以是负数   （必需） */
+            /* 第三个是模糊距离 阴影的模糊程度 数值越大越模糊  （可选）*/
+            /* 第四个是阴影的尺寸（大小） （可选）*/
+            /* 第五个是阴影的颜色 可以是半透明也可以是实色 （可选） */
+            /* 第六个是外阴影（不常用）但是不能写默认的outside（外阴影）想要呈现外阴影这个属性就不要写（可选） */
+            /* box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3) inset;  （可选）*/
+            /* 建议反复修改参数调试，好理解一些 */
+        }
+
+        /* 原先盒子没有影子，当鼠标经过影子就添加阴影 */
+        div:hover {
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aa">
+
+    </div>
+</body>
+
+</html>

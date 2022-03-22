@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            以后写网页可以直接写进*里，省得去找标签加
+        } */
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border: 20px solid red;
+            padding: 15px;
+            /* box-sizing: content-box; 盒子大小为width+padding+border（以前默认的） */
+            box-sizing: content-box;
+        }
+
+        p {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border: 20px solid red;
+            padding: 15px;
+            /* css3 盒子模型 盒子最终的大小就是width的大小 */
+            /* 把盒子模型改成box-sizing:border-box ; 那padding和border就不会撑开盒子   前提是padding和border不会超过width宽度*/
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div>我是你爹</div>
+    <p>我是你爷</p>
+</body>
+
+</html>

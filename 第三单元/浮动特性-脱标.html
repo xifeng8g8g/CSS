@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 重点：1.浮动元素会脱离标准 */
+        /* 脱离标准普通流的控制（浮）移动到指定位置（动），俗称脱标 */
+        /* 浮动的盒子不会保留原先的位置 */
+        /* 2.浮动的元素会一行内显示并且元素顶部对齐 */
+        /* 3.浮动的元素会就有行内块元素的特性 */
+
+        .box1 {
+            /* 只一个盒子加了浮动，原先的位置就不再保留 */
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: plum;
+
+        }
+
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">浮动的盒子</div>
+    <div class="box2">标准版的盒子</div>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 下面代码的意思是在第一行元素末尾添加一个盒子堵住后路 */
+        /* 后面会讲 */
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        /* 就这两条伪类标签，然后添加到父元素就行 */
+
+        .box {
+            width: 800px;
+            border: 1px solid blue;
+            margin: 0 auto;
+        }
+
+        .laoda {
+            float: left;
+            width: 300px;
+            height: 200px;
+            background-color: brown;
+        }
+
+        .laoer {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: burlywood;
+        }
+
+        .footer {
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 这里 -->
+    <div class="box clearfix">
+        <div class="laoda"></div>
+        <div class="laoer"></div>
+
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>

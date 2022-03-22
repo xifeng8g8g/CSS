@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.把所有的偶数even孩子选取出来 */
+        ul li:nth-child(even) {
+            background-color: beige;
+        }
+
+        /* 2.把所有的偶数odd孩子选取出来 */
+        ul li:nth-child(odd) {
+            background-color: brown;
+        }
+
+        /* 3.nth-child(n) 从0开始，每次加1 往后面计算 这里面必须是n 不能是其他的字母  选择了所有的孩子*/
+        ol li:nth-child(n) {
+            background-color: chartreuse;
+        }
+
+        /* 接下去的要把除自己外到第三个全部注释掉才能看到效果 */
+
+        /* 4.nth-child(2n) 选择了所有的偶数孩子 等价于even
+        ol li:nth-child(2n) {
+            background-color: yellow;
+        }
+
+        /* 5.nth-child(2n+1) 选择了所有的奇数孩子 等价于odd*/
+        /* ol li:nth-child(2n+1) {
+            background-color: aqua;
+        }  */
+        /*  6.从第5个数开始（包含第五个）到最后 其他数也可以*/
+        /* ol li:nth-child(n+5){
+            background-color: pink;
+        } */
+         /*  7.选取前五个（包括第五个） 其他数也可以*/
+         /* ol li:nth-child(-n+5){
+            background-color:chocolate;
+        } */
+        /* 8.选取5的倍数  5 10 15*/
+        /* ol li:nth-child(5n){
+            background-color: violet;
+        } */
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ul>
+    <ol>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ol>
+</body>
+
+</html>

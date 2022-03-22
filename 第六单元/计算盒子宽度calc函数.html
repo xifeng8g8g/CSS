@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .son{
+            /* width: 150px; */
+            width: calc(150px+30px); 
+            /* 演算过程：son盒子和父亲一样宽 ，然后减去30像素，使son始终比父盒子小30像素 */
+            /* calc里面可以使用加减乘除进行计算 */
+            width: calc(100%-30px); 
+            height: 30px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 需求我们的子盒子宽度永远父盒子小30像素 -->
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+</body>
+
+</html>

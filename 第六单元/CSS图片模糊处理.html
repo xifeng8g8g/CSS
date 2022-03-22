@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css滤镜filter  */
+        /* filter：函数（JavaScript里面会讲）； */
+        /* 例如：filter :blur(5px); blur模糊处理 数值越大越模糊 */
+        img{
+            /* blur是一个函数，小括号里面数值越大，图片越模糊 注意数值要加单位px */
+            filter: blur(10px);
+        }
+        img:hover{
+            filter: blur(0);
+        }
+    </style>
+</head>
+<body>
+    <img src="图片/ldh.jpg" alt="">
+</body>
+</html>

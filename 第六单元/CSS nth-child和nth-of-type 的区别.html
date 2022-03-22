@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li:first-of-type{
+            background-color: aqua;
+        }
+        ul li:last-of-type{
+            background-color: blue;
+        }
+        ul li:nth-of-type(even){
+            background-color: skyblue;
+        }
+        /* nth-child 会把所有的盒子都排列序号 */
+        /* 执行的时候首先看nth-child(1)，之后回去看前面的div  因为section里面第一行是p，所以选择不出来*/
+        section div:nth-child(1){
+            background-color: antiquewhite;
+        }
+        /* nth-of-type 会把指定元素的盒子排列序号  */
+        /* 执行的时候首先看指定的元素div 之后再看是第几个盒子*/
+        section div:nth-of-type(1){
+            background-color: teal;
+                }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ul>
+    <!-- 区别 -->
+<section>
+    <p>你奶奶</p>
+    <div>你爹</div>
+    <div>你爷</div>
+</section>
+</body>
+</html>

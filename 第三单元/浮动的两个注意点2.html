@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 900px;
+            height: 300px;
+            background-color: steelblue;
+            margin: 0 auto;
+        }
+
+        .laoda {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: teal;
+        }
+
+        .laoer {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+
+        }
+
+        .laosan {
+
+            width: 300px;
+            height: 240px;
+            background-color: saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 因为给laoda设置了浮动，所以老二作为标准流就压了上来 -->
+        <div class="laoda">浮动</div>
+        <div class="laoer">标准流</div>
+        <div class="laosan"></div>
+    </div>
+
+</body>
+
+</html>

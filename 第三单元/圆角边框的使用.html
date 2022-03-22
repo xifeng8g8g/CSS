@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 圆形的做法 */
+        .aa {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            /* border-radius: 100px; */
+            /* 50%就是宽度和高度的一半，等价于100px */
+            border-radius: 50%;
+        }
+
+        /* 圆角矩形的做法 */
+        .bb {
+            width: 300px;
+            height: 100px;
+            background-color: hotpink;
+            /* 圆角矩形设置为高度的一半 */
+            border-radius: 50px;
+        }
+
+        .cc {
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+            /* 分别对应左上 右上 左下 右下 */
+            /* border-radius: 10px 20px 30px 40px; */
+            /* 可以设置为两个值，分别对应两个对角 */
+            /* border-radius: 10px 30px; */
+            /* 可以设置三个值  分别是左上，右上和左下 右下 */
+            /* border-radius: 10px 20px 30px; */
+
+            /* 只要左上角变化，其他几个位置同理 */
+            border-top-left-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aa">
+
+    </div>
+    <div class="bb">
+    </div>
+    <div class="cc"></div>
+</body>
+
+</html>
